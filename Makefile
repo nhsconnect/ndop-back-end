@@ -1,7 +1,22 @@
 export SHELL=/bin/bash
 
+
+#--- VARIABLES ---
+#Defaulted to ensure they are passed in
+directory = none
+unit_test_directory = none
+#Build vars
+python_version = 3.6.0
+python_coverage_threshold = 90
+
+
 default:
 	@echo "A task must be specified"
+
+check-directory:
+ifeq ("$(directory)", "none")
+	$(error A 'directory' param must be specified for this command)
+endif
 
 check-unit_test_directory:
 ifeq ("$(unit_test_directory)", "none")
@@ -18,14 +33,14 @@ install-python-global-dependencies: check-directory
 install-python-dependencies: check-directory
 	scripts/code-build-utils.sh installPythonDependencies $(directory)
 
-unit-test-python-lambdas: check-directory check-unit_test_directory
-	scripts/code-build-utils.sh unitTestPythonLambdas $(directory) $(unit_test_directory)
+unit-test-python-lambdas:
+	scripts/code-build-utils.sh unitTestPythonLambdas state_model unit_tests
 
-coverage-python-lambdas: check-directory check-unit_test_directory
-	scripts/code-build-utils.sh coveragePythonLambdas $(directory) $(unit_test_directory) $(python_coverage_threshold)
+coverage-python-lambdas:
+	scripts/code-build-utils.sh coveragePythonLambdas state_model unit_tests $(python_coverage_threshold)
 
-lint-python-lambdas: check-directory
-	scripts/code-build-utils.sh lintPythonLambdas $(directory)
+lint-python-lambdas: 
+	scripts/code-build-utils.sh lintPythonLambdas state_model
 
-package-python-lambdas: check-directory
-	scripts/code-build-utils.sh packagePythonLambdas $(directory)
+package-python-lambdas: 
+	scripts/code-build-utils.sh packagePythonLambdas state_model

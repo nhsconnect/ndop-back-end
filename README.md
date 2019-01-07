@@ -26,4 +26,16 @@ git clone https://github.com/nhsconnect/ndop-back-end.git
 
 This repository contains the source code for the backend lambdas, and as such, can not be directly run in a local environment and will need to be deployed into AWS. 
 
-The project contains the unit tests that were used to develop the state model functionality.
+To run the unit tests from the command line, run:
+
+    make unit-test-python-lambdas
+
+### Running coverage
+To run coverage from the command line, run:
+
+    make coverage-python-lambdas
+
+### Running pylint
+To run linting from the command line, run:
+
+    make lint-python-lambdas
