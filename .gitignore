@@ -1,0 +1,12 @@
+*.idea
+*.pyc
+*.DS_Store
+*.secret
+ci/credentials.yml
+ci/.vagrant/
+*.coverage
+venv
+*.zip
+.vagrant/
+Dockerfile
+docker-compose.yml
