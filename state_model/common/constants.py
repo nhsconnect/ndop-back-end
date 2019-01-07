@@ -1,0 +1,18 @@
+# Event
+EVENT_SESSION_ID_FIELD = 'session_id'
+EVENT_STATE_MODEL_FIELD = 'state_model'
+
+# Response
+CHECK_STATE_MODEL_KEY = 'exists'
+CHECK_STATE_MODEL_PRESENT = {CHECK_STATE_MODEL_KEY: True}
+CHECK_STATE_MODEL_NOT_PRESENT = {CHECK_STATE_MODEL_KEY: False}
+
+# State_model
+STATE_MODEL_EXPIRY_TIME_KEY = "expiry_time_key"
+
+# Misc fields
+EMPTY_STRING = ""
+SINGLE_QUOTE = "'"
+DOUBLE_QUOTE = '"'
+NEW_LINE = '\n'
+
