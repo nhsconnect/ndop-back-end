@@ -1,5 +1,9 @@
 <img src="images/logo.png" height=72>
 
+# NDOP (National Data Opt-out)
+
+The National Data Opt-out Service is a service that allows patients to opt out of their confidential patient information being used for research and planning, the website project consists of multiple repositories ([ndop-back-end](https://github.com/nhsconnect/ndop-back-end), [ndop-front-end](https://github.com/nhsconnect/ndop-front-end), [ndop-nojs](https://github.com/nhsconnect/ndop-nojs))
+
 # NDOP Back End Code
 
 This is the source code repository for the back end portion of the National Data Opt-out Service.
@@ -7,11 +11,12 @@ This is the source code repository for the back end portion of the National Data
 ## Description
 This repository contains a variety of backend lambda functions, including the following:
 
-* state_model:
+* state model lambdas:
   * `check-state-model` - Lambda used to check a specified state model in ElastiCache
   * `delete-state-model` - Lambda used to delete a specified state model from ElastiCache
   * `get-state-model` - Lambda used to get a specified state model from ElastiCache
   * `put-state-model` - Lambda used to set a specified state model in ElastiCache
+  * The state model lambdas are being placed in the same VPC as ElastiCache to control the access to the ElastiCache, any other backend or frontend lambda that needs to read/write to the state model in the ElastiCache can do that through the state model lambdas.
 
 ## Building the code
 
